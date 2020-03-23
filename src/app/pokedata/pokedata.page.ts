@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { PokeServiceService } from '../poke-service.service';
 
 
+
 @Component({
   selector: 'app-pokedata',
   templateUrl: './pokedata.page.html',
@@ -15,6 +16,8 @@ import { PokeServiceService } from '../poke-service.service';
 export class PokedataPage implements OnInit {
 
   url:string
+  abilities : any
+  ability:any
 
   constructor(private httpClient: HttpClient,private route: Router,private pokeService: PokeServiceService) { 
    
@@ -26,13 +29,13 @@ export class PokedataPage implements OnInit {
     this.url = this.pokeService.getTempData("url")
     this.httpClient.get(this.url).subscribe((res:any)=>{
       console.log(res);
+      this.abilities = res.results 
+      console.log(res.results);
+      console.log(this.abilities);
+      
     },err =>{
       console.log(err);
     })
     }
 
 }
-
-//https://stackoverflow.com/questions/36039355/get-another-chunk-of-data
-// https://www.google.com/search?q=get+id+data+pokeapi+angular&spell=1&sa=X&ved=2ahUKEwie4aPX_KfoAhWfIrkGHUZAAXIQBSgAegQICBAp&biw=1366&bih=657
-//https://dribbble.com/shots/6540871-Pokedex-App

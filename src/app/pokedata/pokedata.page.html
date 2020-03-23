@@ -7,10 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-header>
   <ion-toolbar>
-    <ion-title>Poke Name</ion-title>
+    <ion-title>{{ pokeService.name }}</ion-title>
   </ion-toolbar>
+</ion-header>
+
+<ion-content>
   <ion-segment value="pokemonStatus">
     <ion-segment-button value="about">
       <ion-label>About</ion-label>
@@ -22,13 +25,13 @@
       <ion-label>Moves</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <ion-content>
-    Species
-      <!-- Height
-      Weight  
-      Abilities -->
-  </ion-content>
-  <ion-content>
-    Height
-  </ion-content>
+  <!-- List of Text Items -->
+  <ion-list  *ngFor="let ability of abilities?.abilities">
+    <ion-item>
+      <ion-label>{{ abilities }}</ion-label>
+      <ion-label>{{ res.abilities }}</ion-label>
+      <ion-label>{{ res.results }}</ion-label>
+      <ion-label>{{ this.abilities }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
