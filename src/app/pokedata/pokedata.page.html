@@ -9,7 +9,7 @@
 
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ pokeService.name }}</ion-title>
+    <ion-title>{{ pokemon.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -29,9 +29,7 @@
   <ion-list  *ngFor="let ability of abilities?.abilities">
     <ion-item>
       <ion-label>{{ abilities }}</ion-label>
-      <ion-label>{{ res.abilities }}</ion-label>
-      <ion-label>{{ res.results }}</ion-label>
-      <ion-label>{{ this.abilities }}</ion-label>
+
     </ion-item>
   </ion-list>
 </ion-content>
