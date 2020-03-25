@@ -13,7 +13,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-segment value="pokemonStatus">
     <ion-segment-button value="about">
       <ion-label>About</ion-label>
@@ -25,12 +25,32 @@
       <ion-label>Moves</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <!-- List of Text Items -->
 
-  <ion-list *ngFor="let abilities of ability">
-    <ion-item>
-      <ion-labelcolor="secondary">{{ abilities.abilities }}</ion-label> 
-      <ion-labelcolor="secondary">{{ abilities.ability }}</ion-label>
+
+  <!-- Nome do pokemon -->
+  <img src="{{ pokemon?.sprites.front_default }}" alt="">
+  <h1>
+    {{ pokemon?.name }}
+  </h1>
+
+  <!-- Habilidades do pokemon -->
+  <ion-list>
+    <ion-list-header class="ion-no-padding">
+      Habilidades do pokemon
+    </ion-list-header>
+    <ion-item class="ion-no-padding" *ngFor="let abilities of pokemon?.abilities">
+      <ion-label color="secondary">{{ abilities.ability.name }}</ion-label>
     </ion-item>
   </ion-list>
+
+  <!-- Tipo -->
+  <ion-list>
+    <ion-list-header class="ion-no-padding">
+      Tipo do pokemon
+    </ion-list-header>
+    <ion-item class="ion-no-padding" *ngFor="let type of pokemon?.types">
+      <ion-label color="secondary">{{ type.type.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
