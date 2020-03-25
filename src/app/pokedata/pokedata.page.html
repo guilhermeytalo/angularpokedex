@@ -9,7 +9,7 @@
 
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ pokemon.name }}</ion-title>
+    <ion-title>{{ Name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -26,10 +26,11 @@
     </ion-segment-button>
   </ion-segment>
   <!-- List of Text Items -->
-  <ion-list  *ngFor="let ability of abilities?.abilities">
-    <ion-item>
-      <ion-label>{{ abilities }}</ion-label>
 
+  <ion-list *ngFor="let abilities of ability">
+    <ion-item>
+      <ion-labelcolor="secondary">{{ abilities.abilities }}</ion-label> 
+      <ion-labelcolor="secondary">{{ abilities.ability }}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
