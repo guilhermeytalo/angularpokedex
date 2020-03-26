@@ -16,7 +16,8 @@ export class HomePage {
   offset = 50;
   pokemons = [];
 
-  @ViewChild(IonInfiniteScroll) infinite: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll)  infinite: IonInfiniteScroll;
+  // infinite: IonInfiniteScroll;
 
   constructor(private httpClient: HttpClient, private route: Router, private pokeService: PokeServiceService) {
     this.httpClient.get("https://pokeapi.co/api/v2/pokemon").subscribe(
@@ -44,34 +45,24 @@ export class HomePage {
   }
 
 
-  loadPokemon(loadMore = false, event?){
+  loadPokemons(loadMore = false, event?){
     if(loadMore) {
       this.offset += 20;
     }
 
-
-    this.pokeService.getPokemons(this.offset).subscribe(next => {
-      console.log('result', next);
-      this.pokemonsList = [...this.pokemonsList, ...next];
-  
-      if (event) {
-        event.target.complete();
-      }
-  
-      if (this.offset == 40) {
-        this.infinite.disabled = true;
-      }
+    this.httpClient.get(this.next).subscribe(res => {
+      console.log('result', res);
+      this.pokemonsList = [...this.pokemonsList];
+      
+      this.pokemonsList.push(this.next);
+          if (event) {
+            event.target.complete();
+          }
+      
+          if (this.offset == 40) {
+            this.infinite.disabled = true;
+          }
       });
 
   }
-
-    
-  
-
-  
-
-
-
-
-
-
+}
