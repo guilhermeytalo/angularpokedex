@@ -10,28 +10,22 @@ import { IonInfiniteScroll } from "@ionic/angular";
   styleUrls: ["home.page.scss"]
 })
 export class HomePage {
-  pokemonsList: any;
+  pokemonsList: any[] = [];
   next: any;
   lista: any;
   offset = 50;
   pokemons = [];
 
-  @ViewChild(IonInfiniteScroll)  infinite: IonInfiniteScroll;
   // infinite: IonInfiniteScroll;
 
   constructor(private httpClient: HttpClient, private route: Router, private pokeService: PokeServiceService) {
     this.httpClient.get("https://pokeapi.co/api/v2/pokemon").subscribe(
       (res: any) => {
-        console.log(res);
-        this.pokemonsList = res.results;
+        for (let i = 0; i < res.results.length; i++) {
+          this.pokemonsList.push(res.results[i]);
+        }
         console.log(this.pokemonsList);
         this.next = res.next;
-        console.log(res.next);
-        this.next = res.next;
-        console.log(this.next);
-        // this.pokemonsList.push(this.next);
-        // console.log(this.pokemonsList.push);
-
       },
       err => {
         console.log(err);
@@ -44,25 +38,24 @@ export class HomePage {
     this.pokeService.setTempData("url", url);
   }
 
-
-  loadPokemons(loadMore = false, event?){
-    if(loadMore) {
-      this.offset += 20;
+  getMore(event) {
+    if (this.next != null) {
+      this.httpClient.get(this.next).subscribe(
+        (res: any) => {
+          console.log(res);
+          for (let i = 0; i < res.results.length; i++) {
+            this.pokemonsList.push(res.results[i]);
+          }
+          this.next = res.next;
+          event.target.complete();
+        },
+        err => {
+          console.log(err);
+        });
     }
-
-    this.httpClient.get(this.next).subscribe(res => {
-      console.log('result', res);
-      this.pokemonsList = [...this.pokemonsList];
-      
-      this.pokemonsList.push(this.next);
-          if (event) {
-            event.target.complete();
-          }
-      
-          if (this.offset == 40) {
-            this.infinite.disabled = true;
-          }
-      });
+    else {
+      event.target.disabled = true;
+    }
 
   }
 }
