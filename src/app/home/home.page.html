@@ -13,10 +13,16 @@
     </ion-list-header>
 
     <ion-item *ngFor="let pokemon of pokemonsList" (click)="pokemonData(pokemon.url)">
-      
         <ion-label >{{ pokemon.name }}</ion-label>
-      
+        
     </ion-item>
   </ion-list>
+
+  <!-- <ion-infinite-scroll (ionInfinite)="loadPokemon(true, $event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more pokemons...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
 </ion-content>
 </ion-app>

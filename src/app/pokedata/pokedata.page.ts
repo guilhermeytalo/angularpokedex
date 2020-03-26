@@ -17,9 +17,11 @@ export class PokedataPage implements OnInit {
 
   url: string;
   pokemon: any;
+  pokemonStatus: string
 
-
-  constructor(private httpClient: HttpClient, private route: Router, private pokeService: PokeServiceService) { }
+  constructor(private httpClient: HttpClient, private route: Router, private pokeService: PokeServiceService) { 
+    this.pokemonStatus = "about";
+  }
 
   async ngOnInit() {
     this.url = await this.pokeService.getTempData("url")
