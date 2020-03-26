@@ -22,4 +22,10 @@ export class PokeServiceService {
   setTempData(key: string, value:any) {
     this.tempData[key] = value;
   }
+
+  // getPokemons(key: string, value:any) {
+  //   this.tempData[key] = value;
+
+  //   return value;
+  // }
 }
