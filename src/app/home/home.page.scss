@@ -1,3 +1,5 @@
+
+
 #container {
   text-align: center;
 
@@ -26,8 +28,19 @@
   text-decoration: none;
 }
 
+
+ion-content {
+  --ion-item-background:#ffffff; 
+  
+}
+
+ion-toolbar {
+  --ion-background-color:#ffffff;
+  --ion-text-color:#000000;
+}
 ion-content ion-toolbar {
   --background: translucent;
+  
 }
 
 ion-toolbar ion-title{

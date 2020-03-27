@@ -1,28 +1,35 @@
 <ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Angular Pokedex</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Angular Pokedex</ion-title>
-  </ion-toolbar>
-</ion-header>
+  <ion-content [fullscreen]="true" color="pokecolorbackground">
+    
+    <ion-list lines="none">
+      <ion-list-header color="pokecolorbackground">
+        Pokedex
+      </ion-list-header>
+    </ion-list>
 
-<ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-list-header>
-      Pokedex
-    </ion-list-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let pokemon of pokemonsList" (click)="pokemonData(pokemon.url)" col-12 no-padding>
+          
+          <ion-card>
+            <ion-card-title color="pokefont">{{ pokemon.name }}</ion-card-title>
+          </ion-card>
 
-    <ion-item *ngFor="let pokemon of pokemonsList" (click)="pokemonData(pokemon.url)">
-        <ion-label >{{ pokemon.name }}</ion-label>
-        
-    </ion-item>
-  </ion-list>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-  <ion-infinite-scroll (ionInfinite)="getMore($event)">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Loading more pokemons...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-</ion-content>
+    <ion-infinite-scroll (ionInfinite)="getMore($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more pokemons...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </ion-content>
 </ion-app>

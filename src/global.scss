@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,40 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+:root {
+  /** background **/
+  --ion-color-pokecolorbackground: #ffffff;
+  --ion-color-pokecolorbackground-rgb: 255, 255, 255;
+  --ion-color-pokecolorbackground-contrast: #000000;
+  --ion-color-pokecolorbackground-contrast-rgb: 0, 0, 0;
+  --ion-color-pokecolorbackground-shade: #e0e0e0;
+  --ion-color-pokecolorbackground-tint: #ffffff;
+
+  /** fonts **/
+
+  --ion-color-pokefont: #000000;
+  --ion-color-pokefont-rgb: 0, 0, 0;
+  --ion-color-pokefont-contrast: #ffffff;
+  --ion-color-pokefont-contrast-rgb: 255, 255, 255;
+  --ion-color-pokefont-shade: #000000;
+  --ion-color-pokefont-tint: #1a1a1a;
+}
+
+.ion-color-pokecolorbackground {
+  --ion-color-base: var(--ion-color-pokecolorbackground);
+  --ion-color-base-rgb: var(--ion-color-pokecolorbackground-rgb);
+  --ion-color-contrast: var(--ion-color-pokecolorbackground-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-pokecolorbackground-contrast-rgb);
+  --ion-color-shade: var(--ion-color-pokecolorbackground-shade);
+  --ion-color-tint: var(--ion-color-pokecolorbackground-tint);
+}
+
+.ion-color-pokefont {
+  --ion-color-base: var(--ion-color-pokefont);
+  --ion-color-base-rgb: var(--ion-color-pokefont-rgb);
+  --ion-color-contrast: var(--ion-color-pokefont-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-pokefont-contrast-rgb);
+  --ion-color-shade: var(--ion-color-pokefont-shade);
+  --ion-color-tint: var(--ion-color-pokefont-tint);
+}

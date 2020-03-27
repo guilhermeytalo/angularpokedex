@@ -26,8 +26,8 @@ export class PokedataPage implements OnInit {
   async ngOnInit() {
     this.url = await this.pokeService.getTempData("url")
     this.httpClient.get(this.url).subscribe((res: any) => {
-      console.log(res);
       this.pokemon = res;
+      console.log(res);
     }, err => {
       console.log(err);
     })

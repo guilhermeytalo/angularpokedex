@@ -1,8 +1,7 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { PokeServiceService } from "../poke-service.service";
-import { IonInfiniteScroll } from "@ionic/angular";
 
 @Component({
   selector: "app-home",
@@ -12,11 +11,7 @@ import { IonInfiniteScroll } from "@ionic/angular";
 export class HomePage {
   pokemonsList: any[] = [];
   next: any;
-  lista: any;
-  offset = 50;
   pokemons = [];
-
-  // infinite: IonInfiniteScroll;
 
   constructor(private httpClient: HttpClient, private route: Router, private pokeService: PokeServiceService) {
     this.httpClient.get("https://pokeapi.co/api/v2/pokemon").subscribe(
