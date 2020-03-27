@@ -1,27 +1,24 @@
 <ion-app>
-  <ion-header>
+  <!-- <ion-header>
     <ion-toolbar>
       <ion-title>Angular Pokedex</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
   <ion-content [fullscreen]="true" color="pokecolorbackground">
     
     <ion-list lines="none">
-      <ion-list-header color="pokecolorbackground">
+      <h2 class="poketitle" color="pokecolorbackground">
         Pokedex
-      </ion-list-header>
+      </h2>
     </ion-list>
 
     <ion-grid>
       <ion-row>
-        <ion-col *ngFor="let pokemon of pokemonsList" (click)="pokemonData(pokemon.url)" col-12 no-padding>
-          
+        <ion-col *ngFor="let pokemon of pokemonsList" (click)="pokemonData(pokemon.url)"  size="6" no-padding>
           <ion-card>
-            <ion-card-title color="pokefont">{{ pokemon.name }}</ion-card-title>
+            <ion-card-title color="pokefont" class="fixline">{{ pokemon.name }}</ion-card-title>
           </ion-card>
-
-          
         </ion-col>
       </ion-row>
     </ion-grid>

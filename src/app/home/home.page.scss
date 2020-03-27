@@ -28,6 +28,29 @@
   text-decoration: none;
 }
 
+ion-app{
+  .fixline{
+    height: 60px;
+    margin-bottom: 7px;
+  }
+  
+}
+
+ion-card-title{
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+h2{
+  position: relative;
+  left: 10px;
+}
+
+  // .poketitle{
+  //   position: relative;
+  //   left: 10px;
+  // }
 
 ion-content {
   --ion-item-background:#ffffff; 

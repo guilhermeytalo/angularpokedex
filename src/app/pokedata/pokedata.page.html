@@ -1,101 +1,78 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>PokeStatus</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>PokeStatus</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-header>
-  <ion-toolbar>
-    <ion-title>{{ pokemon?.name }}</ion-title>
-  </ion-toolbar>
-  <img src="{{ pokemon?.sprites.front_default }}" alt="" />
-</ion-header>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{ pokemon?.name }}</ion-title>
+    </ion-toolbar>
+    <img src="{{ pokemon?.sprites.front_default }}" alt="" />
+  </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-segment [(ngModel)]="pokemonStatus">
-    <ion-segment-button value="about">
-      <ion-label>About</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="baseStatus">
-      <ion-label>Base Status</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="moves">
-      <ion-label>Moves</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+  <ion-content class="ion-padding">
+    <ion-card>
+      <ion-segment color="secondary" [(ngModel)]="pokemonStatus">
+        <ion-segment-button value="about">
+          <ion-label color="pokefont">About</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="baseStatus">
+          <ion-label color="pokefont">Base Status</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="moves">
+          <ion-label color="pokefont">Moves</ion-label>
+        </ion-segment-button>
+      </ion-segment>
 
-  <!-- Nome do pokemon -->
-  <!-- <img src="{{ pokemon?.sprites.front_default }}" alt="" /> -->
-  <!-- <h1>
-    {{ pokemon?.name }}
-  </h1> -->
+      <div [ngSwitch]="pokemonStatus" class="bodycolor">
+        <!-- Abilities -->
+        <ion-list lines="none" *ngSwitchCase="'about'">
+          <ion-item class="ion-no-padding" *ngFor="let abilities of pokemon?.abilities">
+            <ion-label color="pokefont">{{ abilities.ability.name }}</ion-label>
+          </ion-item>
+        </ion-list>
 
-  <div [ngSwitch]="pokemonStatus">
-    <!-- Abilities -->
-    <ion-list *ngSwitchCase="'about'">
-      <ion-list-header class="ion-no-padding">
-        Abilities
-      </ion-list-header>
-      <ion-item
-        class="ion-no-padding"
-        *ngFor="let abilities of pokemon?.abilities"
-      >
-        <ion-label color="secondary">{{ abilities.ability.name }}</ion-label>
-      </ion-item>
-    </ion-list>
+        <!-- Species -->
+        <ion-list lines="none" *ngSwitchCase="'about'">
+          <ion-item class="ion-no-padding" *ngFor="let type of pokemon?.types">
+            <ion-label color="pokefont">{{ type.type.name }}</ion-label>
+          </ion-item>
+        </ion-list>
 
-    <!-- Species -->
-    <ion-list *ngSwitchCase="'about'">
-      <ion-list-header class="ion-no-padding">
-        Species
-      </ion-list-header>
-      <ion-item class="ion-no-padding" *ngFor="let type of pokemon?.types">
-        <ion-label color="secondary">{{ type.type.name }}</ion-label>
-      </ion-item>
-    </ion-list>
+        <!-- Weight -->
+        <ion-list lines="none" *ngSwitchCase="'about'">
+          <ion-item class="ion-no-padding">
+            <ion-label color="pokefont">{{ pokemon?.weight }}</ion-label>
+          </ion-item>
+        </ion-list>
 
-    <!-- Weight -->
-    <ion-list *ngSwitchCase="'about'">
-      <ion-list-header class="ion-no-padding">
-        Weight
-      </ion-list-header>
-      <ion-item class="ion-no-padding">
-        <ion-label color="secondary">{{ pokemon?.weight }}</ion-label>
-      </ion-item>
-    </ion-list>
+        <!-- Height -->
+        <ion-list lines="none" *ngSwitchCase="'about'">
+          <ion-item class="ion-no-padding">
+            <ion-label color="pokefont">{{ pokemon?.height }}</ion-label>
+          </ion-item>
+        </ion-list>
 
-    <!-- Height -->
-    <ion-list *ngSwitchCase="'about'">
-      <ion-list-header class="ion-no-padding">
-        Height
-      </ion-list-header>
-      <ion-item class="ion-no-padding">
-        <ion-label color="secondary">{{ pokemon?.height }}</ion-label>
-      </ion-item>
-    </ion-list>
+        <!-- Stats -->
+        <ion-list lines="none" *ngSwitchCase="'baseStatus'">
+          <ion-item class="ion-no-padding" *ngFor="let stat of pokemon?.stats">
+            <ion-label color="pokefont">{{ stat.stat.name }}</ion-label>
+            <ion-label color="pokefont">{{ stat.base_stat }}</ion-label>
+          </ion-item>
+        </ion-list>
 
-    <!-- Stats -->
-    <ion-list *ngSwitchCase="'baseStatus'">
-      <ion-list-header class="ion-no-padding">
-        Stats
-      </ion-list-header>
-      <ion-item class="ion-no-padding" *ngFor="let stat of pokemon?.stats">
-        <ion-label color="secondary">{{ stat.stat.name }}</ion-label>
-        <ion-label color="secondary">{{ stat.base_stat }}</ion-label>
-      </ion-item>
-    </ion-list>
-
-    <!-- Moves -->
-    <ion-list *ngSwitchCase="'moves'">
-      <ion-list-header class="ion-no-padding">
-        Moves
-      </ion-list-header>
-      <ion-item class="ion-no-padding" *ngFor="let move of pokemon?.moves">
-        <ion-label color="secondary">{{ move.move.name }}</ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
-</ion-content>
+        <!-- Moves -->
+        <ion-list lines="none" *ngSwitchCase="'moves'">
+          <ion-item class="ion-no-padding" *ngFor="let move of pokemon?.moves">
+            <ion-label color="pokefont">{{ move.move.name }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-card>
+  </ion-content>
+</ion-app>
