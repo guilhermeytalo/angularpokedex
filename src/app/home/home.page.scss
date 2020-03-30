@@ -28,6 +28,75 @@
   text-decoration: none;
 }
 
+.poketitle{
+  font-weight: bold;
+  position: relative;
+  left: 1em;
+  top: 2.5em;
+}
+
+.pokemonImage {
+  position: relative;
+    left: 6.5em;
+    top: -12em;
+    -webkit-box-align: center;
+    align-items: center;
+    align-content: center;
+    width: 80px;
+    height: auto;
+}
+
+.pokeballPokemon{
+  position: relative;
+  width: 100px;
+  height: auto;
+  left: 6.2em;
+  top: -5em;
+  opacity: 0.2;
+}
+
+.pokeballhome{
+  opacity: 0.1;
+  position: relative;
+  top: -8.5em;
+  left: 16.5em;
+  height: 240px;
+  width: 240px;
+}
+
+
+.pokeId{
+  position: relative;
+  left: 9em;
+  top: -4em;
+}
+
+
+.title{
+  position: relative;
+  top: 1em;
+}
+
+
+
+
+// h2{
+//   position: relative;
+//   left: 0.5em;
+//   top: 3em;
+// }
+
+ion-title{
+  .title{
+    position: relative;
+    top: 10px;
+  }
+}
+
+ion-header {
+  width: auto;
+  height: 100px;
+}
 ion-app{
   .fixline{
     height: 60px;
@@ -38,16 +107,17 @@ ion-app{
 
 ion-card-title{
   position: relative;
-  top: 10px;
-  left: 10px;
+    top: 3em;
+    left: 10px;
+    font-size: 14px;
 }
 
-h2{
-  position: relative;
-  left: 10px;
+ion-card{
+  border-radius: 20px;
+  width: auto;
+  height: 120px;
 }
 
- 
 ion-content {
   --ion-item-background:#ffffff; 
   
@@ -57,6 +127,7 @@ ion-toolbar {
   --ion-background-color:#ffffff;
   --ion-text-color:#000000;
 }
+
 ion-content ion-toolbar {
   --background: translucent;
   
