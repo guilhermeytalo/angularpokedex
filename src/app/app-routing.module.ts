@@ -5,7 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
-    path: 'pokedata',
+    path: 'home/:index',
     loadChildren: () => import('./pokedata/pokedata.module').then( m => m.PokedataPageModule)
   },
 ];

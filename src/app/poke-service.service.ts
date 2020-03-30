@@ -1,25 +1,34 @@
 import { Injectable } from '@angular/core';
+import { HttpClient ,HttpClientModule } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokeServiceService {
-  tempData: [] = [];
-
+  
+  baseUrl = 'https://pokeapi.co/api/v2';
+  imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/`;
  
-  constructor() { }
+  constructor(private http: HttpClient) { 
 
-  getTempData(key: string): any {
-    const result = this.tempData[key];
-
-    if (result != null) {
-        this.tempData[key] = null;
-    }
-
-    return result;
-}
-
-  setTempData(key: string, value:any) {
-    this.tempData[key] = value;
   }
+ getPokemon(offset = 0) {
+   return this.http.get(`${this.baseUrl}/pokemon?offset=${offset}&limit=20`).pipe(
+     map(result => {
+       return result['results'];
+     }),
+     map(pokemons => {
+       return pokemons.map((poke, index) => {
+         poke.image = this.getPokeImage(index + offset + 1);
+         poke.pokeIndex = offset + index + 1;
+         return poke;
+       })
+     })
+   )
+ }
+  
+ getPokeImage(index) {
+   return `${this.imageUrl}${index}.png`;
+ }
 }
