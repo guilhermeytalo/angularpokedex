@@ -6,31 +6,12 @@ h1 {
     text-transform: capitalize;
 }
 
-ion-list {
-    --ion-item-background:#ffffff; 
-}
-
-
 ion-app{
     --ion-background-color:#ffffff;
-    .body{
-        --ion-background-color: #ffffff;
-    }     
 } 
 
-ion-content, ion-header{
+ion-content, ion-header, ion-list{
     --ion-text-color: #000000;
-    // --ion-background-color: #ffffff;
-    --ion-item-background: #ffffff;
+    --ion-item-background:#ffffff;
+    --ion-background-color:#ffffff;
 }
-
-ion-segment {
-    --ion-background: #ffffff;
-    --ion-item-background: #ffffff;
-}
-
-
-// ion-header {
-//     --ion-background-color: #ffffff;
-// }
-
