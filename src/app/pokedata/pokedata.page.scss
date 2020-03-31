@@ -1,10 +1,26 @@
+.pokeId{
+    position: relative;
+    left: 12em;
+    // top: 0em;
+    
+}
+
+ion-chip{
+    .typeChip{
+        padding: 0;
+    }
+    .chipName{
+        --ion-text-color: #000000;
+    }
+}
+h1 {
+    text-transform: capitalize;
+}
+
 ion-toolbar ion-title{
     text-align: left
 }
 
-h1 {
-    text-transform: capitalize;
-}
 
 ion-app{
     --ion-background-color:#ffffff;
@@ -15,3 +31,19 @@ ion-content, ion-header, ion-list{
     --ion-item-background:#ffffff;
     --ion-background-color:#ffffff;
 }
+
+.pokebackground{
+    --ion-item-background:#ffffff;
+    --ion-background-color:#ffffff;
+}
+ion-label{
+    .statusBaseNum{
+        padding-left: 1em;
+    }
+}
+.pokeStatus {
+    padding-left: 1em;
+}
+// ion-label{
+//     padding-left: 1em;
+// }

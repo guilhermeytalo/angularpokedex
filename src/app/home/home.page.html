@@ -12,8 +12,8 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col *ngFor="let poke of pokemon;" size="6" no-padding>
-          <ion-card>
+        <ion-col *ngFor="let poke of pokemon;" size="6" no-padding [routerLink]="poke.pokeIndex">
+        <ion-card>
             <ion-card-title color="pokefont" class="fixline">{{ poke.name  | titlecase  }}</ion-card-title>
             <p class="pokeId">#{{ poke.pokeIndex }}</p>
             <img class="pokeballPokemon" src="assets/images/pokeball_dark.png"/>
@@ -23,10 +23,10 @@
       </ion-row>
     </ion-grid>
 
-    <!-- <ion-infinite-scroll (ionInfinite)="getMore($event)">
+    <ion-infinite-scroll (ionInfinite)="loadPokemon(true, $event)">
       <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more pokemons...">
       </ion-infinite-scroll-content>
-    </ion-infinite-scroll> -->
+    </ion-infinite-scroll>
 
   </ion-content>
 </ion-app>

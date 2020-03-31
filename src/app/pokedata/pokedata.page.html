@@ -10,9 +10,19 @@
 
   <ion-header>
     <ion-toolbar> 
-      <ion-title>{{ pokemon?.name }}</ion-title>
+      <ion-title>{{ details?.name | titlecase }}</ion-title>
+      <ion-title class="pokeId"># {{ details?.id }}</ion-title>
+      <ion-chip color="pokefont" class="typeChip" *ngFor="let t of details?.types">
+        <ion-label class="chipName">{{ t.type.name | titlecase }}</ion-label>
+      </ion-chip>
       </ion-toolbar>
-    <img class="pokebackground" src="{{ pokemon?.sprites.front_default }}" alt="" />
+      <div>
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let sprite of details?.images">
+          <img class="pokebackground" src="{{ sprite }}" alt="" />
+        </ion-slide>
+      </ion-slides>
+    </div>
   </ion-header>
 
   <ion-content class="ion-padding">
@@ -29,47 +39,46 @@
         </ion-segment-button>
       </ion-segment>
 
-      <div [ngSwitch]="pokemonStatus" class="bodycolor">
+      <div [ngSwitch]="pokemonStatus" class="pokeStatus">
         <!-- Abilities -->
         <ion-list lines="none" *ngSwitchCase="'about'">
-          <ion-item class="ion-no-padding" *ngFor="let abilities of pokemon?.abilities">
-            <ion-label>{{ abilities.ability.name }}</ion-label>
-          </ion-item>
-        </ion-list>
-
-        <!-- Species -->
-        <ion-list lines="none" *ngSwitchCase="'about'">
-          <ion-item class="ion-no-padding" *ngFor="let type of pokemon?.types">
-            <ion-label>{{ type.type.name }}</ion-label>
+          <ion-item class="ion-no-padding" >
+            <ion-label>
+             <span *ngFor="let a of details?.abilities; let isLast = last"> 
+               {{ a.ability.name | titlecase }}{{ !isLast ? ',' : '' }} 
+              </span>
+            </ion-label>
           </ion-item>
         </ion-list>
 
         <!-- Weight -->
         <ion-list lines="none" *ngSwitchCase="'about'">
           <ion-item class="ion-no-padding">
-            <ion-label>{{ pokemon?.weight }}</ion-label>
+            <ion-label>{{ details?.weight }}</ion-label>
           </ion-item>
         </ion-list>
 
         <!-- Height -->
         <ion-list lines="none" *ngSwitchCase="'about'">
           <ion-item class="ion-no-padding">
-            <ion-label>{{ pokemon?.height }}</ion-label>
+            <ion-label>{{ details?.height }}</ion-label>
           </ion-item>
         </ion-list>
 
         <!-- Stats -->
         <ion-list lines="none" *ngSwitchCase="'baseStatus'">
-          <ion-item class="ion-no-padding" *ngFor="let stat of pokemon?.stats">
-            <ion-label>{{ stat.stat.name }}</ion-label>
-            <ion-label>{{ stat.base_stat }}</ion-label>
+          <ion-item class="ion-no-padding" *ngFor="let s of details?.stats">
+            <ion-label>{{ s.stat.name | titlecase }}</ion-label>
+            <ion-label class="statusBaseNum">{{ s.base_stat }}</ion-label>
           </ion-item>
         </ion-list>
 
         <!-- Moves -->
         <ion-list lines="none" *ngSwitchCase="'moves'">
-          <ion-item class="ion-no-padding" *ngFor="let move of pokemon?.moves">
-            <ion-label>{{ move.move.name }}</ion-label>
+          <ion-item class="ion-no-padding" *ngFor="let m of details?.moves; let isLast = last">
+            <ion-label>
+              {{ m.move.name | titlecase }}
+            </ion-label>
           </ion-item>
         </ion-list>
       </div>
