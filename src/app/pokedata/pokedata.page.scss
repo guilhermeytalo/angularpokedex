@@ -1,8 +1,12 @@
 .pokeId{
     position: relative;
     left: 12em;
-    // top: 0em;
     
+    
+}
+
+.pokeStatus {
+    padding-left: 1em;
 }
 
 ion-chip{
@@ -13,18 +17,19 @@ ion-chip{
         --ion-text-color: #000000;
     }
 }
+
 h1 {
     text-transform: capitalize;
 }
 
-ion-toolbar ion-title{
-    text-align: left
+ion-segment-button{
+    --ion-color-step-350: #ffffff;
+
 }
 
-
-ion-app{
-    --ion-background-color:#ffffff;
-} 
+ ion-title{
+    text-align: left
+}
 
 ion-content, ion-header, ion-list{
     --ion-text-color: #000000;
@@ -32,18 +37,21 @@ ion-content, ion-header, ion-list{
     --ion-background-color:#ffffff;
 }
 
-.pokebackground{
-    --ion-item-background:#ffffff;
-    --ion-background-color:#ffffff;
-}
 ion-label{
     .statusBaseNum{
         padding-left: 1em;
     }
 }
-.pokeStatus {
-    padding-left: 1em;
-}
-// ion-label{
-//     padding-left: 1em;
-// }
+
+
+ion-card {
+    border-radius: 30px;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding-bottom: 0px;
+
+  }
+
+

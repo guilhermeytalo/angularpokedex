@@ -1,32 +1,27 @@
-<ion-app>
-  <ion-content [fullscreen]="true" color="pokecolorbackground">
-    <ion-toolbar>
-      <ion-header>
-      <h2 class="poketitle">
-        Pokedex
-      </h2>
-      <!-- </ion-list> -->
-      <img class="pokeballhome" src="assets/images/pokeball_dark.png" alt="">
-    </ion-header>
-    </ion-toolbar>
+<ion-content [fullscreen]="true" color="pokecolorbackground" class="ion-padding">
+  <h2 class="poketitle">
+    Pokedex
+  </h2>
+  <img class="pokeballhome" src="assets/images/pokeball_dark.png" alt="">
 
+  <div class="pokeContent">
     <ion-grid>
       <ion-row>
-        <ion-col *ngFor="let poke of pokemon;" size="6" no-padding [routerLink]="poke.pokeIndex">
-        <ion-card>
+        <ion-col *ngFor="let poke of pokemon;" size="6"  [routerLink]="poke.pokeIndex">
+          <ion-card class="ion-no-margin">
             <ion-card-title color="pokefont" class="fixline">{{ poke.name  | titlecase  }}</ion-card-title>
             <p class="pokeId">#{{ poke.pokeIndex }}</p>
-            <img class="pokeballPokemon" src="assets/images/pokeball_dark.png"/>
-            <img class="pokemonImage" [src]="poke.image" />
+            <div class="cardBackground">
+                <img class="pokeballPokemon" src="assets/images/pokeball_dark.png" />
+                <img class="pokemonImage" [src]="poke.image" />
+            </div>
           </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>
-
-    <ion-infinite-scroll (ionInfinite)="loadPokemon(true, $event)">
-      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more pokemons...">
-      </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
-
-  </ion-content>
-</ion-app>
+  </div>
+  <ion-infinite-scroll #IonInfiniteScroll (ionInfinite)="loadPokemon(true, $event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more pokemons...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

@@ -1,33 +1,33 @@
-<ion-app>
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/"></ion-back-button>
-      </ion-buttons>
-      <ion-title>PokeStatus</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header>
+  <ion-toolbar color="pokecolorbackground">
+    <ion-buttons>
+      <ion-back-button text="" icon="arrow-back-outline" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>PokeStatus</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-header>
-    <ion-toolbar> 
-      <ion-title>{{ details?.name | titlecase }}</ion-title>
-      <ion-title class="pokeId"># {{ details?.id }}</ion-title>
-      <ion-chip color="pokefont" class="typeChip" *ngFor="let t of details?.types">
-        <ion-label class="chipName">{{ t.type.name | titlecase }}</ion-label>
-      </ion-chip>
-      </ion-toolbar>
-      <div>
+<ion-content>
+  <div>
+    <!-- <ion-toolbar>  -->
+    <h2>{{ details?.name | titlecase }}</h2>
+    <h3 class="pokeId"># {{ details?.id }}</h3>
+    <ion-chip color="pokefont" class="typeChip" *ngFor="let t of details?.types">
+      <ion-label class="chipName">{{ t.type.name | titlecase }}</ion-label>
+    </ion-chip>
+    <!-- </ion-toolbar> -->
+    <div class="pokeImg">
       <ion-slides pager="true" [options]="slideOpts">
         <ion-slide *ngFor="let sprite of details?.images">
           <img class="pokebackground" src="{{ sprite }}" alt="" />
         </ion-slide>
       </ion-slides>
     </div>
-  </ion-header>
+  </div>
 
-  <ion-content class="ion-padding">
+  <div>
     <ion-card>
-      <ion-segment color="secondary" [(ngModel)]="pokemonStatus">
+      <ion-segment mode="md" color="secondary" [(ngModel)]="pokemonStatus">
         <ion-segment-button value="about">
           <ion-label color="pokefont">About</ion-label>
         </ion-segment-button>
@@ -42,10 +42,10 @@
       <div [ngSwitch]="pokemonStatus" class="pokeStatus">
         <!-- Abilities -->
         <ion-list lines="none" *ngSwitchCase="'about'">
-          <ion-item class="ion-no-padding" >
+          <ion-item class="ion-no-padding">
             <ion-label>
-             <span *ngFor="let a of details?.abilities; let isLast = last"> 
-               {{ a.ability.name | titlecase }}{{ !isLast ? ',' : '' }} 
+              <span *ngFor="let a of details?.abilities; let isLast = last">
+                {{ a.ability.name | titlecase }}{{ !isLast ? ',' : '' }}
               </span>
             </ion-label>
           </ion-item>
@@ -83,5 +83,5 @@
         </ion-list>
       </div>
     </ion-card>
-  </ion-content>
-</ion-app>
+  </div>
+</ion-content>
