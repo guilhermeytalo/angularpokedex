@@ -52,12 +52,13 @@
 
 .pokeballhome {
   opacity: 0.1;
-  position: relative;
-  top: -8.5em;
-  left: 15em;
-  height: 240px;
-  width: 240px;
-  display: flex;
+    position: relative;
+    top: -8.5em;
+    left: 65%;
+    height: 240px;
+    width: 240px;
+    display: -webkit-box;
+    display: flex;
 }
 
 .pokeId {
