@@ -44,6 +44,45 @@
   --ion-color-pokefont-shade: #000000;
   --ion-color-pokefont-tint: #1a1a1a;
 
+  /*pokemon card background */
+
+  --ion-color-grass: #49d0b0;
+  --ion-color-fire: #fc6c6d;
+  --ion-color-water: #76befe;
+  --ion-color-bug: #5e8a6c;
+  --ion-color-normal: #c2c094;
+  --ion-color-poison: #7d528c;
+  --ion-color-electric: #ffd76f;
+  --ion-color-ground: #b0736d;
+  --ion-color-fairy: #ce84ad;
+
+  .ion-color-grass {
+    --ion-color-base: var(--ion-color-grass);
+  }
+  .ion-color-fire {
+    --ion-color-base: var(--ion-color-fire);
+  }
+  .ion-color-water {
+    --ion-color-base: var(--ion-color-water);
+  }
+  .ion-color-bug {
+    --ion-color-base: var(--ion-color-bug);
+  }
+  .ion-color-normal {
+    --ion-color-base: var(--ion-color-normal);
+  }
+  .ion-color-poison {
+    --ion-color-base: var(--ion-color-poison);
+  }
+  .ion-color-electric {
+    --ion-color-base: var(--ion-color-electric);
+  }
+  .ion-color-ground {
+    --ion-color-base: var(--ion-color-ground);
+  }
+  .ion-color-fairy {
+    --ion-color-base: var(--ion-color-fairy);
+  }
   /* background variation*/
 
   --ion-color-pokecolorbackgroundvariation: #49d0b0;

@@ -21,10 +21,10 @@ export class PokedataPage implements OnInit {
   slideOpts = {
     initialSlide: 2,
     length: 4,
-    // autoplay: {
-    //   delay: 1000,
-    //   disableOnInteraction: false
-    // }
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false
+    }
   }
   
   

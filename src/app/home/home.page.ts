@@ -12,6 +12,9 @@ import { IonInfiniteScroll } from '@ionic/angular';
 export class HomePage implements OnInit {
   offset = 0;
   pokemon = [];
+  i : any;
+  color: any;
+
   // @ViewChild("IonInfiniteScroll", {static:true}) infinite: IonInfiniteScroll; mapea um elemnto do html
 
   constructor(private httpClient: HttpClient, private route: Router, private pokeService: PokeServiceService) { }
@@ -21,16 +24,25 @@ export class HomePage implements OnInit {
     
   }
 
-  loadPokemon(loadmore = false, event?) {
+  // PokeColor(){
+  //   if(this.PokeColor = this.i) 
+  //   return this.color =  "#49D0B0";
+  // }
 
+  loadPokemon(loadmore = false, event?) {
+    
     if (loadmore) {
       this.offset += 20
       if (this.offset === 40) {
         event.target.disabled = true;
+        // if(this.i === 1) {
+        //   this.color = "#49D0B0";
+        // }
         return
       }
     }
 
+   
     this.pokeService.getPokemon(this.offset).subscribe(res => {
       console.log('result: ', res);
       this.pokemon = [...this.pokemon, ...res];
@@ -39,6 +51,9 @@ export class HomePage implements OnInit {
         event.target.complete();
       }
     });
+
+
+
   }
 
 }

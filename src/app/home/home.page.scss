@@ -25,6 +25,47 @@
   text-decoration: none;
 }
 
+/* pokemons color background start*/
+.grass {
+  --ion-background-color: #49D0B0;
+}
+
+.fire {
+  --ion-background-color: #FC6C6D;
+}
+
+.water {
+  --ion-background-color: #76BEFE;
+}
+
+.bug {
+  --ion-background-color: #5E8A6C;
+}
+
+.normal {
+  --ion-background-color: #C2C094;
+  // --ion-background-color: #E5C2C0;
+}
+
+.poison {
+  --ion-background-color:  #7D528C;
+}
+
+.electric{
+  --ion-background-color: #FFD76F;
+}
+
+.ground {
+  --ion-background-color: #B0736D;
+}
+
+.fairy {
+  --ion-background-color: #CE84AD;
+}
+
+
+
+/* pokemons color background end*/
 .poketitle {
   font-weight: bold;
 }

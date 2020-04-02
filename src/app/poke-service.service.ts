@@ -23,11 +23,23 @@ export class PokeServiceService {
         return pokemons.map((poke, index) => {
           poke.image = this.getPokeImage(index + offset + 1);
           poke.pokeIndex = offset + index + 1;
+          // poke.pokeColor = offset + index + 1;
           return poke;
         })
       })
     )
   }
+
+  // getPokeColor(index) {
+  //   return this.http.get(`${this.baseUrl}/pokemon/${index}`).pipe(
+  //    map(poke =>{
+  //      let i = Object.keys(poke['i']);
+  //      poke['index'] = i
+  //      .map(iKey => poke['i'][iKey])
+  //      return i;
+  //    })
+  //   )
+  // }
 
   getPokeImage(index) {
     return `${this.imageUrl}${index}.png`;
