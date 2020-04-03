@@ -12,6 +12,7 @@
     <!-- <ion-toolbar>  -->
     <h2 class="pokeTitle">{{ details?.name | titlecase }}</h2>
     <h3 class="pokeId"># {{ details?.id }}</h3>
+    <span color="pokefont">{{ type?.name}}</span>
     <ion-chip class="typeChip" *ngFor="let t of details?.types">
       <ion-label class="chipName">{{ t.type.name | titlecase }}</ion-label>
     </ion-chip>
@@ -65,7 +66,7 @@
           <ion-item class="ion-no-padding">
             <ion-label>{{ details?.height }}</ion-label>
           </ion-item>
-        </ion-list>
+        </ion-list>        
 
         <!-- Stats -->
         <ion-list lines="none" *ngSwitchCase="'baseStatus'">
@@ -78,7 +79,7 @@
 
         <!-- Moves -->
         <ion-list lines="none" *ngSwitchCase="'moves'">
-          <ion-item class="ion-no-padding" *ngFor="let m of details?.moves; let isLast = last">
+          <ion-item class="ion-no-padding" *ngFor="let m of details?.moves">
             <ion-label>
               {{ m.move.name | titlecase }}
             </ion-label>

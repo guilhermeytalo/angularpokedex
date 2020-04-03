@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { PokeServiceService } from "../poke-service.service";
-import { IonInfiniteScroll } from '@ionic/angular';
+// import { IonInfiniteScroll } from '@ionic/angular';
 
 @Component({
   selector: "app-home",
@@ -12,21 +12,20 @@ import { IonInfiniteScroll } from '@ionic/angular';
 export class HomePage implements OnInit {
   offset = 0;
   pokemon = [];
-  
+  color : string;
+
   // @ViewChild("IonInfiniteScroll", {static:true}) infinite: IonInfiniteScroll; mapea um elemnto do html
 
   constructor(private httpClient: HttpClient, private route: Router, private pokeService: PokeServiceService) { 
+ 
   }
+
 
   ngOnInit() {
     this.loadPokemon();
     
   }
 
-  // PokeColor(){
-  //   if(this.PokeColor = this.i) 
-  //   return this.color =  "#49D0B0";
-  // }
 
   loadPokemon(loadmore = false, event?) {
     

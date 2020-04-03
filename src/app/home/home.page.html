@@ -7,13 +7,23 @@
   <div class="pokeContent">
     <ion-grid>
       <ion-row>
-        <ion-col *ngFor="let poke of pokemon;" size="6"  [routerLink]="poke.pokeIndex">
-          <ion-card class="ion-no-margin">
+        <ion-col *ngFor="let poke of pokemon; let i = index" size="6"  [routerLink]="poke.pokeIndex">
+          <ion-card class="ion-no-margin"[ngClass]="{ 
+            'grass' : i >= 0 && i <= 2, 
+            'fire' : i >= 3 && i <= 5 || i >= 36 && i <= 38,
+             'water' : i >= 6 && i <= 8,
+             'bug' : i >= 9 && i <= 14,
+             'normal' : i >= 15 && i <= 21 || i >= 38 && i <= 40 ,
+             'poison' : i >= 22 && i <= 23 || i >= 28 &&  i <= 33,
+             'electric' : i>= 24 && i <= 25,
+             'ground' : i>= 26 && i <= 27,
+             'fairy' : i >= 34 && i<= 35
+          }">
             <ion-card-title color="pokefont" class="fixline">{{ poke.name  | titlecase  }}</ion-card-title>
             <p class="pokeId">#{{ poke.pokeIndex }}</p>
             <div class="cardBackground">
-                <img class="pokeballPokemon" src="assets/images/pokeball_dark.png" />
-                <img class="pokemonImage" [src]="poke.image" />
+              <img class="pokeballPokemon" src="assets/images/pokeball.png" />
+              <img class="pokemonImage" [src]="poke.image" />
             </div>
           </ion-card>
         </ion-col>
