@@ -23,7 +23,6 @@ export class PokeServiceService {
         return pokemons.map((poke, index) => {
           poke.image = this.getPokeImage(index + offset + 1);
           poke.pokeIndex = offset + index + 1;
-          // poke.pokeColor = offset + index + 1;
           return poke;
         })
       })
@@ -37,7 +36,7 @@ export class PokeServiceService {
   //      poke['index'] = i
   //      .map(iKey => poke['i'][iKey])
   //      return i;
-  //    })
+  //    }),
   //   )
   // }
 
