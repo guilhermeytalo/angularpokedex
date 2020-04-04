@@ -1,21 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-// import { type } from 'os';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokeServiceService {
 
-
   baseUrl = 'https://pokeapi.co/api/v2';
   imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/`;
 
-  
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {}
 
   getPokemon(offset = 0) {
     return this.http.get(`${this.baseUrl}/pokemon?offset=${offset}&limit=20`).pipe(
@@ -31,11 +27,9 @@ export class PokeServiceService {
       })
     )
   }
-
   getPokeImage(index) {
     return `${this.imageUrl}${index}.png`;
   }
-  
   getPokeDetails(index) {
     return this.http.get(`${this.baseUrl}/pokemon/${index}`).pipe(
       map(poke => {
@@ -47,5 +41,4 @@ export class PokeServiceService {
       })
     )
   }
-
 }
