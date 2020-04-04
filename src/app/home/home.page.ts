@@ -17,7 +17,6 @@ export class HomePage implements OnInit {
   // @ViewChild("IonInfiniteScroll", {static:true}) infinite: IonInfiniteScroll; mapea um elemnto do html
 
   constructor(private httpClient: HttpClient, private route: Router, private pokeService: PokeServiceService) {}
-
   
   ngOnInit() {
     this.loadPokemon();
