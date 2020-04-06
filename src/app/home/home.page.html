@@ -8,7 +8,7 @@
     <ion-grid>
       <ion-row>
         <ion-col *ngFor="let poke of pokemon; let i = index" size="6"  [routerLink]="poke.pokeIndex">
-          <ion-card class="ion-no-margin"[ngClass]="pokeColor(i)">
+          <ion-card class="ion-no-margin" [ngClass]="pokeColor(i)">
             <ion-card-title color="pokefont" class="fixline">{{ poke.name  | titlecase  }}</ion-card-title>
             <p class="pokeId">#{{ poke.pokeIndex }}</p>
             <div class="cardBackground">

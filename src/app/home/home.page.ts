@@ -12,7 +12,7 @@ import { PokeServiceService } from "../poke-service.service";
 export class HomePage implements OnInit {
   offset = 0;
   pokemon = [];
-  i : number;
+  // i : number;
   
   // @ViewChild("IonInfiniteScroll", {static:true}) infinite: IonInfiniteScroll; mapea um elemnto do html
 
@@ -44,7 +44,7 @@ export class HomePage implements OnInit {
   pokeColor(i) {
       if (i >= 0 && i <= 2) {
         return 'grass'
-      } else if (i >= 3 && i <= 5 || i >= 36 && i <= 38)  {
+      } else if (i >= 3 && i <= 5 || i >= 36 && i <= 37)  {
         return 'fire'
       } else if ( i >= 6 && i <= 8 ) {
         return 'water'

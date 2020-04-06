@@ -12,8 +12,59 @@
     top: 2em;
 }
 
+/* pokemon background colors start */
+
+.grass {
+    background: #49D0B0 !important;
+    --background: #49D0B0 !important;
+    
+  }
+  
+  .fire {
+    background: #FC6C6D;
+    --background: #FC6C6D;
+  }
+  
+  .water {
+    background: #76BEFE;
+    --background: #76BEFE;
+  }
+  
+  .bug {
+    background: #88958D;
+    --background: #88958D;
+  }
+  
+  .normal {
+    background: #D4AFB9;
+    --background: #D4AFB9;
+  }
+  
+  .poison {
+    background:  #7D528C;
+    --background: #7D528C;
+  }
+  
+  .electric{
+    background: #FFD76F;
+    --background: #FFD76F;
+  }
+  
+  .ground {
+    background: #B0736D;
+    --background: #B0736D;
+  }
+  
+  .fairy {
+    background: #CE84AD;
+    --background: #CE84AD;
+  }
+
+/* pokemon background colors end*/
+
 .pokeStatus {
     padding-left: 1em;
+    font-size: 14px;
 }
 .dottedBackground{
     top: 130px;
@@ -55,7 +106,6 @@ ion-segment-button{
 }
 
 ion-content {
-    --ion-background-color:#49D0B0;
     --ion-item-background:#ffffff;
 }
 
@@ -72,15 +122,11 @@ ion-label{
     }
 }
 
-.pokeDados{
-    background-color: #49D0B0;
-}
-
 ion-card {
     border-radius: 30px;
     position: absolute;
     width: 100%;
-    height: 3000px;    
+    height: auto;    
     margin: 0;
     padding-bottom: 0px;
 
