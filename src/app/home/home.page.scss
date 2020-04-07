@@ -164,3 +164,13 @@ ion-content ion-toolbar {
 ion-toolbar ion-title {
   text-align: center;
 }
+
+
+/* Custom Skeleton Line Height and Margin */
+.custom-skeleton ion-skeleton-text {
+  line-height: 13px;
+}
+
+.custom-skeleton ion-skeleton-text:last-child {
+  margin-bottom: 5px;
+}

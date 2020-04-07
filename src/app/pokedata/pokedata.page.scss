@@ -1,3 +1,7 @@
+.header-ios ion-toolbar:last-of-type{
+  --border-width: 0;
+}
+
 .pokeTitle{
     left: 5%;
     font-size: 24px;
@@ -117,8 +121,10 @@ ion-content {
 
 
 ion-label{
+  
+
     .statusBaseNum{
-        padding-left: 1em;
+        padding-left: 2em;
     }
 }
 
@@ -131,5 +137,7 @@ ion-card {
     padding-bottom: 0px;
 
   }
-
+ion-item {
+  font-size: 15px;
+}
 
