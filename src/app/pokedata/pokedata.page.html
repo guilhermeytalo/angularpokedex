@@ -26,15 +26,18 @@
 
   <div>
     <ion-card>
-      <ion-segment mode="md" color="secondary" [(ngModel)]="pokemonStatus">
-        <ion-segment-button value="about">
-          <ion-label color="pokefont">About</ion-label>
+      <ion-segment mode="md" class="selector" color="secondary" [(ngModel)]="pokemonStatus">
+        <ion-segment-button  value="about">
+          <ion-label class="about" color="pokefont">About</ion-label>
         </ion-segment-button>
         <ion-segment-button value="baseStatus">
-          <ion-label color="pokefont">Base Status</ion-label>
+          <ion-label color="pokefont">Status</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="moves">
-          <ion-label color="pokefont">Moves</ion-label>
+        <ion-segment-button class="moves" value="moves">
+          <ion-label class="moves" color="pokefont">Moves</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="games">
+          <ion-label class="games" color="pokefont">Games</ion-label>
         </ion-segment-button>
       </ion-segment>
 
@@ -77,6 +80,16 @@
             </ion-label>
           </ion-item>
         </ion-list>
+
+        <!-- Versoin -->
+        <ion-list lines="none" *ngSwitchCase="'games'">
+          <ion-item class="ion-no-padding" *ngFor="let v of details?.game_indices">
+            <ion-label>
+              {{ v.version.name | titlecase }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
       </div>
     </ion-card>
   </div>
